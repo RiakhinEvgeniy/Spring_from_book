@@ -10,4 +10,14 @@ public class ProjectConfig {
     protected Parrot parrot() {
         return new Parrot("Koko");
     }
+
+    @Bean
+    protected String getString() {
+        return "Hello World";
+    }
+
+    @Bean
+    protected Integer getInt() {
+        return 42;
+    }
 }
