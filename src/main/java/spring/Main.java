@@ -8,7 +8,9 @@ public class Main {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Parrot koko = context.getBean("koko", Parrot.class);
+        Parrot koko = context.getBean(Parrot.class);
+        System.out.println(koko);
+        koko.setName("Koko");
         System.out.println(koko.getName());
 
         String string = context.getBean(String.class);
@@ -17,10 +19,10 @@ public class Main {
         int n = context.getBean(Integer.class);
         System.out.println(n);
 
-        Parrot kesha = context.getBean("kesha", Parrot.class);
-        System.out.println(kesha.getName());
-
-        Parrot vasia = context.getBean("vasia", Parrot.class);
-        System.out.println(vasia.getName());
+//        Parrot kesha = context.getBean("kesha", Parrot.class);
+//        System.out.println(kesha.getName());
+//
+//        Parrot vasia = context.getBean("vasia", Parrot.class);
+//        System.out.println(vasia.getName());
     }
 }
