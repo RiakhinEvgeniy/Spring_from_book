@@ -6,14 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 @Configuration
-@ComponentScan(basePackages = "spring")
 public class ProjectConfig {
 
-    @Bean(name = "koko")
-    @Primary
-    protected Parrot parrot() {
-        return new Parrot("Koko");
-    }
+//    @Bean(name = "koko")
+//    @Primary
+//    protected Parrot parrot() {
+//        return new Parrot("Koko");
+//    }
 
 //    @Bean(name = "kesha")
 //    protected Parrot getKesha() {
@@ -25,13 +24,13 @@ public class ProjectConfig {
 //        return new Parrot("Vasia");
 //    }
 
-    @Bean
-    protected String getString() {
-        return "Hello World";
-    }
-
-    @Bean
-    protected Integer getInt() {
-        return 42;
-    }
+//    @Bean
+//    protected String getString() {
+//        return "Hello World";
+//    }
+//
+//    @Bean
+//    protected Integer getInt() {
+//        return 42;
+//    }
 }

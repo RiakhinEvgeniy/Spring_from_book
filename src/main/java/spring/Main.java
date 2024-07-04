@@ -2,27 +2,21 @@ package spring;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.function.Supplier;
+
 public class Main {
 
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Parrot koko = context.getBean(Parrot.class);
-        System.out.println(koko);
-        koko.setName("Koko");
-        System.out.println(koko.getName());
+        Parrot koko = new Parrot("Koko");
 
-        String string = context.getBean(String.class);
-        System.out.println(string);
+        Supplier<Parrot> parrotSupplier = () -> koko;
 
-        int n = context.getBean(Integer.class);
-        System.out.println(n);
+        context.registerBean("koko", Parrot.class, parrotSupplier);
 
-//        Parrot kesha = context.getBean("kesha", Parrot.class);
-//        System.out.println(kesha.getName());
-//
-//        Parrot vasia = context.getBean("vasia", Parrot.class);
-//        System.out.println(vasia.getName());
+        Parrot parrot = context.getBean(Parrot.class);
+        System.out.println(parrot.getName());
     }
 }
