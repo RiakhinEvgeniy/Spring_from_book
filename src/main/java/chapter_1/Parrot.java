@@ -1,9 +1,6 @@
-package spring;
+package chapter_1;
 
 import lombok.*;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,5 +9,4 @@ import javax.annotation.PostConstruct;
 @ToString
 public class Parrot {
     private String name;
-
 }
