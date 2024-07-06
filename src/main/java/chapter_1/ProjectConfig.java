@@ -2,7 +2,7 @@ package chapter_1;
 
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class ProjectConfig {
 
 //    @Bean(name = "koko")
