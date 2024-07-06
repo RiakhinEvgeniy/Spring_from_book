@@ -6,7 +6,11 @@ import lombok.*;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 public class Parrot2 {
     private String name;
+
+    @Override
+    public String toString() {
+        return "Name parrot: " + name;
+    }
 }

@@ -2,7 +2,7 @@ package chapter_2;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Main {
+public class Chapter2App {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig2.class);
 
@@ -11,7 +11,6 @@ public class Main {
         Person person = context.getBean(Person.class);
 
         System.out.println(person.getName());
-        System.out.println(parrot2.getName());
         System.out.println(person.getParrot2());
     }
 }
