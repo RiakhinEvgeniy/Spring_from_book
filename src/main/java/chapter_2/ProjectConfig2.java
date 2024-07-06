@@ -13,6 +13,7 @@ public class ProjectConfig2 {
     public Person getPerson() {
         Person person = new Person();
         person.setName("David");
+        person.setParrot2(getParrot());
         return person;
     }
 }
