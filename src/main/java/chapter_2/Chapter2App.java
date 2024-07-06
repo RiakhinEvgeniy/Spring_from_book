@@ -14,5 +14,6 @@ public class Chapter2App {
 
         System.out.println(person.getName());
         System.out.println(person.getParrot2());
+        System.out.println(parrot2.getName());
     }
 }
