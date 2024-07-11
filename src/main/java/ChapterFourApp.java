@@ -1,18 +1,24 @@
+import configuration.ProjectConfiguration;
 import model.Comment;
-import proxies.CommentNotificationProxy;
-import proxies.EmailCommentNotificationProxy;
-import repositories.CommentRepository;
-import repositories.DBCommentRepository;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import services.CommentService;
 
 public class ChapterFourApp {
     public static void main(String[] args) {
-        CommentRepository dbCommentRepository = new DBCommentRepository();
-        CommentNotificationProxy emailCommentNotificationProxy = new EmailCommentNotificationProxy();
-        CommentService commentService = new CommentService(emailCommentNotificationProxy, dbCommentRepository);
-        Comment comment = new Comment();
-        comment.setAuthor("John Doe");
-        comment.setText("Hello World!");
+
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
+
+        CommentService commentService = context.getBean(CommentService.class);
+
+        Comment comment = createComment();
+
         commentService.publishComment(comment);
+    }
+
+    protected static Comment createComment() {
+        Comment comment = new Comment();
+        comment.setAuthor("Evgeniy");
+        comment.setText("Demo comment");
+        return comment;
     }
 }
