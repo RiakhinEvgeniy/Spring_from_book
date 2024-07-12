@@ -2,6 +2,7 @@ import configuration.ProjectConfiguration;
 import model.Comment;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import services.CommentService;
+import services.UserService;
 
 public class ChapterFourApp {
     public static void main(String[] args) {
@@ -9,10 +10,15 @@ public class ChapterFourApp {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
         CommentService commentService = context.getBean(CommentService.class);
+        UserService userService = context.getBean(UserService.class);
 
         Comment comment = createComment();
 
         commentService.publishComment(comment);
+        userService.publishComment(comment);
+
+        boolean b = commentService.getCommentRepository() == userService.getCommentRepository();
+        System.out.println(b);
     }
 
     protected static Comment createComment() {
