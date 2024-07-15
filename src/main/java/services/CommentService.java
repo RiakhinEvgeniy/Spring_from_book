@@ -23,9 +23,10 @@ public class CommentService {
         this.commentRepository = commentRepository;
     }
 
-    public void publishComment(Comment comment) {
+    public String publishComment(Comment comment) {
         log.info("Publishing comment from class CommentService: " + comment.getText());
         commentRepository.storeComment(comment);
         commentNotificationProxy.sendComment(comment);
+        return "STRING";
     }
 }
