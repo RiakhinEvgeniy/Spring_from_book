@@ -11,6 +11,8 @@ public class ChapterFourApp {
 
         CommentService commentService = context.getBean(CommentService.class);
         UserService userService = context.getBean(UserService.class);
+        System.out.println(userService.getClass());
+        System.out.println(commentService.getClass());
 
         Comment comment = createComment();
 
