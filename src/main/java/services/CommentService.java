@@ -24,7 +24,7 @@ public class CommentService {
     }
 
     public void publishComment(Comment comment) {
-        log.info("Publishing comment-> " + comment.getText());
+        log.info("Publishing comment from class CommentService: " + comment.getText());
         commentRepository.storeComment(comment);
         commentNotificationProxy.sendComment(comment);
     }
