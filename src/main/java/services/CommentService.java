@@ -23,19 +23,11 @@ public class CommentService {
         this.commentRepository = commentRepository;
     }
 
+    @ToLog
     public String publishComment(Comment comment) {
         log.info("Publishing comment from class CommentService: " + comment.getText());
         commentRepository.storeComment(comment);
         commentNotificationProxy.sendComment(comment);
         return "STRING";
-    }
-
-    @ToLog
-    public void editComment(Comment comment) {
-        log.info("Editing comment from class CommentService: " + comment.getText());
-    }
-
-    public void deleteComment(Comment comment) {
-        log.info("Deleting comment from class CommentService: " + comment.getText());
     }
 }
