@@ -16,6 +16,7 @@ public class ChapterFourApp {
 
         String str = commentService.publishComment(comment);
         System.out.println(str);
+        commentService.editComment(comment);
         userService.publishComment(comment);
     }
 

@@ -16,17 +16,23 @@ public class LoggingAspect {
     private final Logger log = Logger.getLogger(CommentService.class.getName());
 
 
-    @Around("execution(* services.CommentService.* (..))")
-    public String logAspect(ProceedingJoinPoint pjp) throws Throwable {
-        log.info("Method will execute...");
-        String methodName = pjp.getSignature().getName();
-        Object[] argsMethod = pjp.getArgs();
-        log.info("Method name: " + methodName + "\nParameters: " + Arrays.asList(argsMethod));
-        Comment comment = new Comment();
-        comment.setText("New text.");
-        Object[] args = {comment};
-        Object objectProceed = pjp.proceed(args);
-        log.info("Method done.");
-        return "FAILED";
+//    @Around("execution(* services.CommentService.* (..))")
+//    public String logAspect(ProceedingJoinPoint pjp) throws Throwable {
+//        log.info("Method will execute...");
+//        String methodName = pjp.getSignature().getName();
+//        Object[] argsMethod = pjp.getArgs();
+//        log.info("Method name: " + methodName + "\nParameters: " + Arrays.asList(argsMethod));
+//        Comment comment = new Comment();
+//        comment.setText("New text.");
+//        Object[] args = {comment};
+//        Object objectProceed = pjp.proceed(args);
+//        log.info("Method done.");
+//        return "FAILED";
+//    }
+
+    @Around("@annotation(ToLog)")
+    public Object logger(ProceedingJoinPoint pjp) throws Throwable {
+        log.info("Start method logger.");
+        return pjp.proceed();
     }
 }

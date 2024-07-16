@@ -29,4 +29,13 @@ public class CommentService {
         commentNotificationProxy.sendComment(comment);
         return "STRING";
     }
+
+    @ToLog
+    public void editComment(Comment comment) {
+        log.info("Editing comment from class CommentService: " + comment.getText());
+    }
+
+    public void deleteComment(Comment comment) {
+        log.info("Deleting comment from class CommentService: " + comment.getText());
+    }
 }
