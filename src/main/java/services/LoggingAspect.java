@@ -2,6 +2,7 @@ package services;
 
 import model.Comment;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -30,9 +31,8 @@ public class LoggingAspect {
 //        return "FAILED";
 //    }
 
-    @Around("@annotation(ToLog)")
-    public Object logger(ProceedingJoinPoint pjp) throws Throwable {
-        log.info("Start method logger.");
-        return pjp.proceed();
+    @AfterReturning(value = "@annotation(ToLog)", returning = "object")
+    public void logger(Object object) {
+        log.info("Start method logger. " + object );
     }
 }
